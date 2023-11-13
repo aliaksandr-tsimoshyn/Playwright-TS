@@ -2,7 +2,7 @@ import { defineConfig } from '@playwright/test';
 import dotenv from 'dotenv'
 
 dotenv.config({
-  path: `./envs/.env`
+  path: `./envs/.env`   //`./envs/.env.${process.env.ENV}` terminal: $env:ENV="trial"
 })
 
 export default defineConfig({
