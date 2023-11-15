@@ -14,7 +14,7 @@ test.beforeAll(async ({ browser }) => {
   )
 })
 
-test(`@web Get First Event Mix`, async ({ context, browser }) => {
+test(`@web Get First Event Mix`, async ({ context }) => {
 
   context = settings.webContext as BrowserContext
 
@@ -35,7 +35,7 @@ test(`@web Get First Event Mix`, async ({ context, browser }) => {
 
 })
 
-test(`@web Fake Coins Mix`, async ({ context, browser }) => {
+test(`@web Fake Coins Mix`, async ({ context }) => {
   
   context = settings.webContext as BrowserContext
 
