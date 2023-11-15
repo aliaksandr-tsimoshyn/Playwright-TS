@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test"
+import { test, expect, APIRequestContext } from "@playwright/test"
 import { settings } from "../utils/background"
 import { customtest } from "../utils/base-extensions"
 import { createAPISessionContext } from "../utils/functions"
@@ -46,11 +46,7 @@ customtest(
 
 test(`@api Get User Coins`, async ({ request }) => {
   
-  //context = settings.apiContext
-  request = await createAPISessionContext(
-    settings.activeUser.email,
-    settings.activeUser.password
-  )
+  request = settings.apiContext as APIRequestContext;
 
   const apiResponse = await request.get(
     `${settings.baseURL}api/company/employee/points/`

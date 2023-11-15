@@ -1,7 +1,8 @@
 import { expect, request } from "@playwright/test"
 import { settings } from "./background"
+import { Browser } from "@playwright/test"
 
-export async function getSessionID(email: any, password: any) {
+export async function getSessionID(email: string, password: string) {
   const context = await request.newContext()
   const loginResponse = await context.post(`${settings.baseURL}api/auth`, {
     data: {
@@ -22,7 +23,7 @@ export async function getSessionID(email: any, password: any) {
   )
 }
 
-export async function createAPISessionContext(email: any, password: any) {
+export async function createAPISessionContext(email: string, password: string) {
   await getSessionID(email, password)
 
   const apiContext = await request.newContext({
@@ -34,7 +35,7 @@ export async function createAPISessionContext(email: any, password: any) {
   return apiContext
 }
 
-export async function createWebSessionContext(email: any, password: any, browser: any) {
+export async function createWebSessionContext(email: string, password: string, browser: Browser) {
   await getSessionID(email, password)
 
   const webContext = await browser.newContext()

@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test"
+import { test, expect, BrowserContext } from "@playwright/test"
 import { LoginPage } from "../page-objects/login-page"
 import { MainPage } from "../page-objects/main-page"
 import { createWebSessionContext } from "../utils/functions"
@@ -16,13 +16,8 @@ test.beforeAll(async ({ browser }) => {
 
 test(`@web Get First Event Mix`, async ({ context, browser }) => {
 
-  //context = settings.webContext
+  context = settings.webContext as BrowserContext
 
-  context = await createWebSessionContext(
-    settings.activeUser.email,
-    settings.activeUser.password,
-    browser
-  )
   const page = await context.newPage()
   const loginPage = new LoginPage(page)
   const mainPage = new MainPage(page)
@@ -42,13 +37,8 @@ test(`@web Get First Event Mix`, async ({ context, browser }) => {
 
 test(`@web Fake Coins Mix`, async ({ context, browser }) => {
   
-  // context = settings.webContext
+  context = settings.webContext as BrowserContext
 
-  context = await createWebSessionContext(
-    settings.activeUser.email,
-    settings.activeUser.password,
-    browser
-  )
   const page = await context.newPage()
   const loginPage = new LoginPage(page)
   const mainPage = new MainPage(page)

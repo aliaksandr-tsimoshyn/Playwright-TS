@@ -1,9 +1,13 @@
-import { defineConfig } from '@playwright/test';
+import { defineConfig } from '@playwright/test';;
 import dotenv from 'dotenv'
+import path from 'path';
 
 dotenv.config({
-  path: `./envs/.env`   //`./envs/.env.${process.env.ENV}` terminal: $env:ENV="trial"
+  path: `./envs/.env.${process.env.ENV || 'qa'}`
+  //terminal: $env:ENV="prod"  
 })
+console.log(process.env.ENV, process.env.URL)
+
 
 export default defineConfig({
   testDir: "./tests",
