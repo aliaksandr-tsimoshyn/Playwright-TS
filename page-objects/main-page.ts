@@ -18,7 +18,7 @@ export class MainPage {
     )
   }
 
-  async isUserLoggedIn(firstName: any, lastName: any) {
+  async isUserLoggedIn(firstName: string, lastName: string) {
     let userGreetingText = (await this.userGreeting.textContent()).replace(
       /\s\s+/g,
       " "

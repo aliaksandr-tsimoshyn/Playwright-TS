@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 import path from 'path';
 
 dotenv.config({
-  //path: `./envs/.env.${process.env.ENV || 'qa'}`
+  path: `./envs/.env.${process.env.ENV || 'qa'}`
   //path: `./envs/.env${process.env.ENV ? '.' + process.env.ENV : ''}`
   //path: './envs/.env' + (process.env.ENV ? '.' + process.env.ENV : '')
   //terminal: $env:ENV="prod"  

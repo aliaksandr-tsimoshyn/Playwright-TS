@@ -23,12 +23,12 @@ export class LoginPage {
     await this.page.goto(settings.baseURL)
   }
 
-  async enterEmail(email: any) {
+  async enterEmail(email: string) {
     await this.emailField.type(email)
     await this.continueButton.click()
   }
 
-  async loginToEspresa(email: any, password: any) {
+  async loginToEspresa(email: string, password: string) {
     await this.goToEspresa()
     await this.enterEmail(email)
     await this.passwordField.fill(password)
