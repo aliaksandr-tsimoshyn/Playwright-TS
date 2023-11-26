@@ -1,4 +1,4 @@
-name: webChrome
+name: webChromeCopy
 on: workflow_dispatch
 
 env:
