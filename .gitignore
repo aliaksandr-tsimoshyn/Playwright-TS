@@ -6,5 +6,5 @@ node_modules/
 /allure-results/
 /allure-report/
 /screenshots/
-/envs/
+/.env/
 

@@ -2,7 +2,8 @@ import { defineConfig, devices } from "@playwright/test"
 import dotenv from 'dotenv'
 
 dotenv.config({
-  path: `./envs/.env.${process.env.ENV || 'qa'}` 
+  //path: `./envs/.env.${process.env.ENV || 'qa'}` 
+  path: `.env`
 })
 console.log(process.env.ENV, process.env.URL)
 
