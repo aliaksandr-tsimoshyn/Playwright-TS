@@ -27,7 +27,7 @@ export default defineConfig({
       name: "Safari",
       use: {
         browserName: "webkit",
-        headless: false,
+        headless: true,
         screenshot: "on",
         trace: "on",
         video: "on",
@@ -37,7 +37,7 @@ export default defineConfig({
       name: "Mobile",
       use: {
         browserName: "chromium",
-        headless: false,
+        headless: true,
         screenshot: "on",
         trace: "on",
         video: "on",
