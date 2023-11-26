@@ -2,9 +2,9 @@ name: webChromeCopy
 on: workflow_dispatch
 
 env:
-  URL: ${URL}
-  EMAIL: ${EMAIL}
-  PASSWORD: ${PASSWORD}
+  URL: ${env.URL}
+  EMAIL: ${env.EMAIL}
+  PASSWORD: ${env.PASSWORD}
 
 jobs:
   test:
