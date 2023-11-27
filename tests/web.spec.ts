@@ -43,7 +43,7 @@ customtest(
   }
 )
 
-test(`@web Get First Event`, async ({ page }) => {
+test.only(`@web Get First Event`, async ({ page }) => {
   const loginPage = new LoginPage(page)
   const mainPage = new MainPage(page)
 
