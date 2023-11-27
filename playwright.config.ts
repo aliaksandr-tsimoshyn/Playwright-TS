@@ -9,7 +9,7 @@ dotenv.config({
   //path: './envs/.env' + (process.env.ENV ? '.' + process.env.ENV : '')
   //terminal: $env:ENV="prod"  
 })
-console.log(process.env.ENV, process.env.URL)
+console.log(process.env.ENV, process.env.URL, process.env.EMAIL, process.env.PASSWORD)
 
 
 export default defineConfig({
