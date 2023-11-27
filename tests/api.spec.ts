@@ -4,12 +4,12 @@ import { customtest } from "../utils/base-extensions"
 import { createAPISessionContext } from "../utils/functions"
 
 
-/*test.beforeAll(async () => {
+test.beforeAll(async () => {
   settings.apiContext = await createAPISessionContext(
     settings.activeUser.email,
     settings.activeUser.password
   )
-})*/
+})
 
 test(`@api Login To Espresa`, async ({ request }) => {
   const loginResponse = await request.post(`${settings.baseURL}api/auth`, {
