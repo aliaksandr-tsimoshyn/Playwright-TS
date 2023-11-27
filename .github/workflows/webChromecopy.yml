@@ -5,9 +5,9 @@ on:
   workflow_dispatch:
 
 env:
-  URL: ${{ vars.URL }}
-  EMAIL: ${{ vars.EMAIL }}
-  PASSWORD: ${{ vars.PASSWORD }}
+  URL: ${{vars.URL}}
+  EMAIL: ${{vars.EMAIL}}
+  PASSWORD: ${{vars.PASSWORD}}
 
 permissions:
   contents: read
