@@ -1,11 +1,11 @@
-import { Page, expect } from "@playwright/test"
+import { Locator, Page, expect } from "@playwright/test"
 
 export class MainPage {
 
   page: Page
   userGreeting: any
-  cardsInfo: any
-  userCoins: any
+  cardsInfo: Locator
+  userCoins: Locator
   
   constructor(page: Page) {
     this.page = page

@@ -1,14 +1,14 @@
-import { Page } from "@playwright/test"
+import { Locator, Page } from "@playwright/test"
 import { settings } from "../utils/background"
 
 export class LoginPage {
   
   page: Page
-  emailField: any
-  continueButton: any
-  passwordField: any
-  submitButton: any
-  loginError: any 
+  emailField: Locator
+  continueButton: Locator
+  passwordField: Locator
+  submitButton: Locator
+  loginError: Locator 
 
   constructor(page: Page) {
     this.page = page
