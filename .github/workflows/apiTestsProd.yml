@@ -2,7 +2,7 @@ name: apiTestsProd
 on: workflow_dispatch
 
 env:
-  URL: ${{ vars.URLPROD }}
+  URLPROD: ${{ vars.URLPROD }}
   EMAIL: ${{ vars.EMAIL }}
   PASSWORD: ${{ vars.PASSWORD }}
 

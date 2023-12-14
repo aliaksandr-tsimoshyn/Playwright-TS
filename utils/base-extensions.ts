@@ -16,7 +16,7 @@ export const customtest = base.extend<Options>({
   myUser: {
     firstName: `Aliaksandr`,
     lastName: `Tsimoshyn`,
-    email: process.env.URLPROD || '',
+    email: process.env.EMAIL || '',
     password: process.env.PASSWORD || '',
   },
   invalidUser: {
