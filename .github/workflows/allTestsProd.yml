@@ -1,10 +1,18 @@
-name: apiProd
-on: workflow_dispatch
+name: allTestsProd
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
 
 env:
   URL: ${{ vars.URLPROD }}
   EMAIL: ${{ vars.EMAIL }}
   PASSWORD: ${{ vars.PASSWORD }}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   test:
@@ -20,10 +28,14 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
-        run: npm run api
-      - uses: actions/upload-artifact@v3
-        if: always()
+        run: npm run allTests
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
         with:
-          name: playwright-report
+          # Upload entire repository
           path: playwright-report/
-          retention-days: 30
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1

@@ -1,15 +1,10 @@
-name: allQA
+name: apiTestsProd
 on: workflow_dispatch
 
 env:
-  URL: ${{ vars.URLQA }}
+  URL: ${{ vars.URLPROD }}
   EMAIL: ${{ vars.EMAIL }}
   PASSWORD: ${{ vars.PASSWORD }}
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
 
 jobs:
   test:
@@ -25,14 +20,10 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
-        run: npm run all
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        run: npm run apiTests
+      - uses: actions/upload-artifact@v3
+        if: always()
         with:
-          # Upload entire repository
+          name: playwright-report
           path: playwright-report/
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+          retention-days: 30

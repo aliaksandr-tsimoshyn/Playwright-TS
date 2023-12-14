@@ -1,11 +1,8 @@
-name: allProd
-on:
-  push:
-    branches: [main, master]
-  workflow_dispatch:
+name: allTestsQA
+on: workflow_dispatch
 
 env:
-  URL: ${{ vars.URLPROD }}
+  URL: ${{ vars.URLQA }}
   EMAIL: ${{ vars.EMAIL }}
   PASSWORD: ${{ vars.PASSWORD }}
 
@@ -28,7 +25,7 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
-        run: npm run all
+        run: npm run allTests
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
