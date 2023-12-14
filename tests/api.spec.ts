@@ -12,7 +12,6 @@ test.beforeAll(async () => {
 })
 
 test(`@api Login To Espresa`, async ({ request }) => {
-  console.log(settings.baseURL)
   const loginResponse = await request.post(`${settings.baseURL}api/auth`, {
     data: {
       username: settings.activeUser.email,
