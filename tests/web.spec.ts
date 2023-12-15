@@ -1,16 +1,14 @@
-import { test, expect } from "@playwright/test"
+import { expect } from "@playwright/test"
 import { LoginPage } from "../page-objects/login-page"
 import { MainPage } from "../page-objects/main-page"
 import { settings } from "../utils/settings"
-import { customtest } from "../utils/extensions"
+import { test } from "../utils/extensions"
 
 
 test.describe.configure({ mode: `default` }) 
 
-test(`@web Login To Espresa`, async ({ page }) => {
-  const loginPage = new LoginPage(page)
-  const mainPage = new MainPage(page)
-
+test(`@web Login To Espresa`, async ({ loginPage, mainPage }) => {
+  
   await loginPage.loginToEspresa(
     settings.activeUser.email,
     settings.activeUser.password
@@ -24,11 +22,8 @@ test(`@web Login To Espresa`, async ({ page }) => {
   console.log(userGreetingText)
 })
 
-customtest(
-  `@web Negative Login To Espresa`,
-  async ({ page, invalidUser, myUser }) => {
-    const loginPage = new LoginPage(page)
-
+test(`@web Negative Login To Espresa`, async ({ page, loginPage, invalidUser }) => {
+    
     await loginPage.goToEspresa()
 
     await loginPage.enterEmail(invalidUser.email)
@@ -43,10 +38,8 @@ customtest(
   }
 )
 
-test(`@web Get First Event`, async ({ page }) => {
-  const loginPage = new LoginPage(page)
-  const mainPage = new MainPage(page)
-
+test(`@web Get First Event`, async ({ loginPage, mainPage }) => {
+  
   await loginPage.loginToEspresa(
     settings.activeUser.email,
     settings.activeUser.password

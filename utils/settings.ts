@@ -3,8 +3,8 @@ import { APIRequestContext, BrowserContext } from "@playwright/test"
 type Settings = {
   baseURL: string,
   sessionID: string,
-  webContext: BrowserContext | null,
-  apiContext: APIRequestContext | null
+  authorizedContext: BrowserContext | null,
+  authorizedRequest: APIRequestContext | null
   activeUser: User,
 
 }
@@ -19,8 +19,8 @@ type User = {
 export const settings: Settings = {
   baseURL: process.env.URL || '',
   sessionID: '',
-  webContext: null,
-  apiContext: null,
+  authorizedContext: null,
+  authorizedRequest: null,
   activeUser: {
     firstName: 'Aliaksandr',
     lastName: 'Tsimoshyn',

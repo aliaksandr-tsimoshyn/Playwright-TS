@@ -3,7 +3,7 @@ import { Locator, Page, expect } from "@playwright/test"
 export class MainPage {
 
   page: Page
-  userGreeting: any
+  userGreeting: Locator 
   cardsInfo: Locator
   userCoins: Locator
   
@@ -19,10 +19,12 @@ export class MainPage {
   }
 
   async isUserLoggedIn(firstName: string, lastName: string) {
-    let userGreetingText = (await this.userGreeting.textContent()).replace(
+
+    let userGreetingText = (await this.userGreeting.textContent() as string).replace(
       /\s\s+/g,
       " "
     )
+    
     expect(userGreetingText, `The user isn't logged in`).toContain(
       `Hello, ${firstName} ${lastName}`
     )

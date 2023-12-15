@@ -1,15 +1,15 @@
-import { test, expect, APIRequestContext } from "@playwright/test"
+import { expect, APIRequestContext } from "@playwright/test"
 import { settings } from "../utils/settings"
-import { customtest } from "../utils/extensions"
-import { createAPISessionContext } from "../utils/functions"
+import { test } from "../utils/extensions"
+import { createAuthorizedAPIContext } from "../utils/functions"
 
 
-test.beforeAll(async () => {
-  settings.apiContext = await createAPISessionContext(
+/*test.beforeAll(async () => {
+  settings.authorizedRequest = await createAuthorizedAPIContext(
     settings.activeUser.email,
     settings.activeUser.password
   )
-})
+})*/
 
 test(`@api Login To Espresa`, async ({ request }) => {
   const loginResponse = await request.post(`${settings.baseURL}api/auth`, {
@@ -25,9 +25,9 @@ test(`@api Login To Espresa`, async ({ request }) => {
   console.log(`The user is logged in with status code ${loginStatus}`)
 })
 
-customtest(
+test(
   `@api Negative Login To Espresa`,
-  async ({ request, invalidUser, myUser }) => {
+  async ({ request, invalidUser }) => {
     const loginResponse = await request.post(`${settings.baseURL}api/auth`, {
       data: {
         username: invalidUser.email,
@@ -44,11 +44,9 @@ customtest(
   }
 )
 
-test(`@api Get User Coins`, async ({ request }) => {
+test(`@api Get User Coins`, async ({ authorizedRequest }) => {
   
-  request = settings.apiContext as APIRequestContext;
-
-  const apiResponse = await request.get(
+  const apiResponse = await authorizedRequest.get(
     `${settings.baseURL}api/company/employee/points/`
   )
   await expect(apiResponse, `Request is failed`).toBeOK()

@@ -1,24 +1,23 @@
-import { test, expect, BrowserContext } from "@playwright/test"
+import { expect } from "@playwright/test"
 import { LoginPage } from "../page-objects/login-page"
 import { MainPage } from "../page-objects/main-page"
-import { createWebSessionContext } from "../utils/functions"
+import { createAuthorizedWebContext } from "../utils/functions"
 import { settings } from "../utils/settings"
+import { test } from "../utils/extensions"
 
 test.describe.configure({ mode: `parallel` })
 
-test.beforeAll(async ({ browser }) => {
-  settings.webContext = await createWebSessionContext(
+/*test.beforeAll(async ({ browser }) => {
+  settings.authorizedContext = await createAuthorizedWebContext(
     settings.activeUser.email,
     settings.activeUser.password,
     browser
   )
-})
+})*/
 
-test(`@web Get First Event Mix`, async ({ context }) => {
+test(`@web Get First Event Mix`, async ({ page, authorizedContext }) => {
 
-  context = settings.webContext as BrowserContext
-
-  const page = await context.newPage()
+  page = await authorizedContext.newPage()
   const loginPage = new LoginPage(page)
   const mainPage = new MainPage(page)
 
@@ -35,11 +34,9 @@ test(`@web Get First Event Mix`, async ({ context }) => {
 
 })
 
-test(`@web Fake Coins Mix`, async ({ context }) => {
+test(`@web Fake Coins Mix`, async ({ authorizedContext }) => {
   
-  context = settings.webContext as BrowserContext
-
-  const page = await context.newPage()
+  const page = await authorizedContext.newPage()
   const loginPage = new LoginPage(page)
   const mainPage = new MainPage(page)
 

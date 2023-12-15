@@ -23,26 +23,26 @@ export async function getSessionID(email: string, password: string) {
   )
 }
 
-export async function createAPISessionContext(email: string, password: string) {
+export async function createAuthorizedAPIContext(email: string, password: string) {
   await getSessionID(email, password)
 
-  const apiContext = await request.newContext({
+  const authorizedRequest = await request.newContext({
     extraHTTPHeaders: {
       Cookie: `sessionid=${settings.sessionID}`,
     },
   })
 
-  return apiContext
+  return authorizedRequest
 }
 
-export async function createWebSessionContext(email: string, password: string, browser: Browser) {
+export async function createAuthorizedWebContext(email: string, password: string, browser: Browser) {
   await getSessionID(email, password)
 
-  const webContext = await browser.newContext()
+  const authorizedContext = await browser.newContext()
 
-  await webContext.addCookies([
+  await authorizedContext.addCookies([
     { name: "sessionid", value: settings.sessionID, url: settings.baseURL },
   ])
 
-  return webContext
+  return authorizedContext
 }
