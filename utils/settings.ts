@@ -17,7 +17,7 @@ type User = {
 }
 
 export const settings: Settings = {
-  baseURL: process.env.URLPROD || '',
+  baseURL: process.env.URL || '',
   sessionID: '',
   webContext: null,
   apiContext: null,

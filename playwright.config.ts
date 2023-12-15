@@ -1,7 +1,7 @@
-import { defineConfig } from '@playwright/test';;
+import { defineConfig } from '@playwright/test'
 import dotenv from 'dotenv'
-import path from 'path';
-import { settings } from './utils/background';
+import path from 'path'
+import { settings } from './utils/settings'
 
 dotenv.config({
   path: `.env` 

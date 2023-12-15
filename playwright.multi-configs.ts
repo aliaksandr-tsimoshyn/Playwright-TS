@@ -1,9 +1,12 @@
 import { defineConfig, devices } from "@playwright/test"
 import dotenv from 'dotenv'
+import { settings } from './utils/settings'
 
 dotenv.config({
   path: `.env`
 })
+
+console.log(settings.baseURL)
 
 export default defineConfig({
   testDir: "./tests",

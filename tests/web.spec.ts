@@ -1,8 +1,8 @@
 import { test, expect } from "@playwright/test"
 import { LoginPage } from "../page-objects/login-page"
 import { MainPage } from "../page-objects/main-page"
-import { settings } from "../utils/background"
-import { customtest } from "../utils/base-extensions"
+import { settings } from "../utils/settings"
+import { customtest } from "../utils/extensions"
 
 
 test.describe.configure({ mode: `default` }) 

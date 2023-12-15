@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 env:
-  URLPROD: ${{ vars.URLPROD }}
+  URL: ${{ vars.URLPROD }}
   EMAIL: ${{ vars.EMAIL }}
   PASSWORD: ${{ vars.PASSWORD }}
 

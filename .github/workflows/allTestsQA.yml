@@ -2,7 +2,7 @@ name: allTestsQA
 on: workflow_dispatch
 
 env:
-  URLQA: ${{ vars.URLQA }}
+  URL: ${{ vars.URLQA }}
   EMAIL: ${{ vars.EMAIL }}
   PASSWORD: ${{ vars.PASSWORD }}
 

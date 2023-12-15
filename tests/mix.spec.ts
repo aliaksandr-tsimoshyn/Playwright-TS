@@ -2,7 +2,7 @@ import { test, expect, BrowserContext } from "@playwright/test"
 import { LoginPage } from "../page-objects/login-page"
 import { MainPage } from "../page-objects/main-page"
 import { createWebSessionContext } from "../utils/functions"
-import { settings } from "../utils/background"
+import { settings } from "../utils/settings"
 
 test.describe.configure({ mode: `parallel` })
 

@@ -1,5 +1,5 @@
 import { expect, request } from "@playwright/test"
-import { settings } from "./background"
+import { settings } from "./settings"
 import { Browser } from "@playwright/test"
 
 export async function getSessionID(email: string, password: string) {

@@ -1,6 +1,6 @@
 import { test, expect, APIRequestContext } from "@playwright/test"
-import { settings } from "../utils/background"
-import { customtest } from "../utils/base-extensions"
+import { settings } from "../utils/settings"
+import { customtest } from "../utils/extensions"
 import { createAPISessionContext } from "../utils/functions"
 
 

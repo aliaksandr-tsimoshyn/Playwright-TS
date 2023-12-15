@@ -1,5 +1,5 @@
 import { Locator, Page } from "@playwright/test"
-import { settings } from "../utils/background"
+import { settings } from "../utils/settings"
 
 export class LoginPage {
   
