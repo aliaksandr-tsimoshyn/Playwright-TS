@@ -13,7 +13,7 @@ import { createAuthorizedWebContext } from "../utils/functions"
   )
 })*/
 
-test.describe(`web tests`, () => {
+test.describe(`WEB Tests`, () => {
   test.describe.configure({ mode: `default` })
 
   test(`@web Login To Espresa`, async ({ loginPage, mainPage }) => {
@@ -65,7 +65,7 @@ test.describe(`web tests`, () => {
   })
 })
 
-test.describe(`mix of web and api tests`, () => {
+test.describe(`Mix Of WEB And API Tests`, () => {
   test.describe.configure({ mode: `parallel` })
 
   test(`@web Get First Event Mix`, async ({ authorizedMainPage }) => {

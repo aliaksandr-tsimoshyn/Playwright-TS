@@ -10,7 +10,7 @@ import { createAuthorizedAPIContext } from "../utils/functions"
   )
 })*/
 
-test.describe(`api tests`, () => {
+test.describe(`API Tests`, () => {
   test(`@api Login To Espresa`, async ({ request }) => {
     const loginResponse = await request.post(`${settings.baseURL}api/auth`, {
       data: {
