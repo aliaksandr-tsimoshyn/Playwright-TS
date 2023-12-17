@@ -9,13 +9,11 @@ export class MainPage {
 
   constructor(page: Page) {
     this.page = page
-    this.userGreeting = this.page.locator(
+    this.userGreeting = page.locator(
       "[class='name name-max-width ng-binding name-only']"
     )
-    this.cardsInfo = this.page.locator(".service-card-info h4")
-    this.userCoins = this.page.locator(
-      "[ng-if='!$ctrl.userInfo.link_for_points']"
-    )
+    this.cardsInfo = page.locator(".service-card-info h4")
+    this.userCoins = page.locator("[ng-if='!$ctrl.userInfo.link_for_points']")
   }
 
   async goToDashboard() {

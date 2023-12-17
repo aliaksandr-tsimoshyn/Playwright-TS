@@ -2,21 +2,20 @@ import { Locator, Page } from "@playwright/test"
 import { settings } from "../utils/settings"
 
 export class LoginPage {
-  
   page: Page
   emailField: Locator
   continueButton: Locator
   passwordField: Locator
   submitButton: Locator
-  loginError: Locator 
+  loginError: Locator
 
   constructor(page: Page) {
     this.page = page
-    this.emailField = this.page.locator("#login_login")
-    this.continueButton = this.page.locator("#login_next")
-    this.passwordField = this.page.locator("#login_password")
-    this.submitButton = this.page.locator("#login_submit")
-    this.loginError = this.page.locator("#login_error")
+    this.emailField = page.locator("#login_login")
+    this.continueButton = page.locator("#login_next")
+    this.passwordField = page.locator("#login_password")
+    this.submitButton = page.locator("#login_submit")
+    this.loginError = page.locator("#login_error")
   }
 
   async goToEspresa() {
