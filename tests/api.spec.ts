@@ -3,12 +3,12 @@ import { settings } from "../utils/settings"
 import { test } from "../utils/extensions"
 import { createAuthorizedAPIContext } from "../utils/functions"
 
-/*test.beforeAll(async () => {
+test.beforeAll(async () => {
   settings.authorizedRequest = await createAuthorizedAPIContext(
     settings.activeUser.email,
     settings.activeUser.password
   )
-})*/
+})
 
 test.describe(`API Tests`, () => {
   test(`@api Login To Espresa`, async ({ request }) => {

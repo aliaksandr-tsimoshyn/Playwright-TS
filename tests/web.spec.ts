@@ -5,13 +5,13 @@ import { settings } from "../utils/settings"
 import { test } from "../utils/extensions"
 import { createAuthorizedWebContext } from "../utils/functions"
 
-/*test.beforeAll(async ({ browser }) => {
+test.beforeAll(async ({ browser }) => {
   settings.authorizedContext = await createAuthorizedWebContext(
     settings.activeUser.email,
     settings.activeUser.password,
     browser
   )
-})*/
+})
 
 test.describe(`WEB Tests`, () => {
   test.describe.configure({ mode: `default` })
