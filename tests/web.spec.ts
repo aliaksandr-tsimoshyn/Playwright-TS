@@ -1,5 +1,4 @@
 import { expect } from "@playwright/test"
-import { LoginPage } from "../page-objects/login-page"
 import { MainPage } from "../page-objects/main-page"
 import { settings } from "../utils/settings"
 import { test } from "../utils/extensions"

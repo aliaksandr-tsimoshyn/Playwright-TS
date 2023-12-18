@@ -32,7 +32,7 @@ export const test = base.extend<MyFixtures>({
     await use(new MainPage(page))
   },
 
-  authorizedMainPage: async ({ page, browser }, use) => {
+  authorizedMainPage: async ({ page }, use) => {
     let authorizedContext = settings.authorizedContext as BrowserContext
     page = await authorizedContext.newPage()
     await use(new MainPage(page))
