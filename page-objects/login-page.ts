@@ -1,22 +1,13 @@
-import { Locator, Page } from "@playwright/test"
+
 import { settings } from "../utils/settings"
+import { BasePage } from "./base-page"
 
-export class LoginPage {
-  page: Page
-  emailField: Locator
-  continueButton: Locator
-  passwordField: Locator
-  submitButton: Locator
-  loginError: Locator
-
-  constructor(page: Page) {
-    this.page = page
-    this.emailField = page.locator("#login_login")
-    this.continueButton = page.locator("#login_next")
-    this.passwordField = page.locator("#login_password")
-    this.submitButton = page.locator("#login_submit")
-    this.loginError = page.locator("#login_error")
-  }
+export class LoginPage extends BasePage {
+  emailField = this.page.locator("#login_login")
+  continueButton = this.page.locator("#login_next")
+  passwordField = this.page.locator("#login_password")
+  submitButton = this.page.locator("#login_submit")
+  loginError = this.page.locator("#login_error")
 
   async goToEspresa() {
     await this.page.goto(settings.baseURL)

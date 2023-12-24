@@ -1,20 +1,13 @@
-import { Locator, Page, expect } from "@playwright/test"
+import { expect } from "@playwright/test"
 import { settings } from "../utils/settings"
+import { BasePage } from "./base-page"
 
-export class MainPage {
-  page: Page
-  userGreeting: Locator
-  cardsInfo: Locator
-  userCoins: Locator
-
-  constructor(page: Page) {
-    this.page = page
-    this.userGreeting = page.locator(
-      "[class='name name-max-width ng-binding name-only']"
-    )
-    this.cardsInfo = page.locator(".service-card-info h4")
-    this.userCoins = page.locator("[ng-if='!$ctrl.userInfo.link_for_points']")
-  }
+export class MainPage extends BasePage {
+  userGreeting = this.page.locator(
+    "[class='name name-max-width ng-binding name-only']"
+  )
+  cardsInfo = this.page.locator(".service-card-info h4")
+  userCoins = this.page.locator("[ng-if='!$ctrl.userInfo.link_for_points']")
 
   async goToDashboard() {
     await this.page.goto(`${settings.baseURL}portal/#/employee/dashboard`)
