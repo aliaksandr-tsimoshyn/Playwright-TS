@@ -1,4 +1,3 @@
-
 import { settings } from "../utils/settings"
 import { BasePage } from "./base-page"
 

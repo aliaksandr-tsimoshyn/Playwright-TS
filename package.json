@@ -13,7 +13,8 @@
     "apiTests": "npx playwright test --grep @api",
     "genAllure": "allure generate ./allure-results --clean",
     "openAllure": "allure open ./allure-report",
-    "openHTML": "npx playwright show-report"
+    "openHTML": "npx playwright show-report",
+    "demoTests": "npx playwright test --grep @demo"
   },
   "keywords": [],
   "author": "",
