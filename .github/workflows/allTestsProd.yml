@@ -35,11 +35,9 @@ jobs:
         uses: actions/configure-pages@v2
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
-        if: always
         with:
           # Upload entire repository
           path: playwright-report/
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
-        if: always
