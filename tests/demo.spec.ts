@@ -14,7 +14,9 @@ test.describe.skip(`Resource 1`, () => {
     await page.goto(`http://uitestingplayground.com/clientdelay`)
     await page.getByText(`Button Triggering Client Side Logic`).click()
     let loadedData = page.locator(`.bg-success`)
-    expect(loadedData, `Data isn't loaded`).toBeVisible()
+    expect(loadedData, `Data isn't loaded`).toContainText(
+      `Data calculated on the client side.`
+    )
     await loadedData.click()
   })
 
