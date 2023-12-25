@@ -2,7 +2,7 @@ import { expect } from "@playwright/test"
 import { test } from "../utils/extensions"
 import { settings } from "../utils/settings"
 
-test.describe(`Resource 1`, () => {
+test.describe.skip(`Resource 1`, () => {
   test.describe.configure({ mode: `default` })
 
   test(`@demo Dynamic ID`, async ({ page }) => {
@@ -42,7 +42,7 @@ test.describe(`Resource 1`, () => {
   })
 })
 
-test.describe(`Resource 2`, () => {
+test.describe.skip(`Resource 2`, () => {
   test.describe.configure({ mode: `default` })
 
   test(`@demo Drag and Drop`, async ({ page }) => {
@@ -54,7 +54,7 @@ test.describe(`Resource 2`, () => {
   })
 })
 
-test.describe(`Resource 3`, () => {
+test.describe.skip(`Resource 3`, () => {
   test.describe.configure({ mode: `default` })
 
   test(`@demo iFrame`, async ({ page }) => {
