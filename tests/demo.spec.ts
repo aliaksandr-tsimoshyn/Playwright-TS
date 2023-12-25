@@ -1,5 +1,6 @@
 import { expect } from "@playwright/test"
 import { test } from "../utils/extensions"
+import { settings } from "../utils/settings"
 
 test.describe(`Resource 1`, () => {
   test.describe.configure({ mode: `default` })
