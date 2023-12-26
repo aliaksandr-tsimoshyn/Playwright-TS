@@ -47,12 +47,29 @@ test.describe.skip(`Resource 1`, () => {
 test.describe.skip(`Resource 2`, () => {
   test.describe.configure({ mode: `default` })
 
-  test(`@demo Drag and Drop`, async ({ page }) => {
-    await page.goto(`https://demoqa.com/dragabble`)
+  test(`@demo Simple`, async ({ page }) => {
+    await page.goto(`https://demoqa.com/droppable`)
     await page.dragAndDrop(
-      `#dragBox`,
-      `#draggableExample-tab-containerRestriction`
+      `#simpleDropContainer #draggable`,
+      `#simpleDropContainer #droppable`
     )
+    await expect(
+      page.locator(`#simpleDropContainer #droppable`),
+      `Element isn't dropped`
+    ).toContainText(`Dropped!`)
+  })
+
+  test(`@demo Accept`, async ({ page }) => {
+    await page.goto(`https://demoqa.com/droppable`)
+    await page.locator(`#droppableExample-tab-accept`).click()
+    await page.dragAndDrop(
+      `#acceptDropContainer #acceptable`,
+      `#acceptDropContainer #droppable`
+    )
+    await expect(
+      page.locator(`#acceptDropContainer #droppable`),
+      `Element isn't dropped`
+    ).toContainText(`Dropped!`)
   })
 })
 
