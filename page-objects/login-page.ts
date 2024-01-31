@@ -13,7 +13,7 @@ export class LoginPage extends BasePage {
   }
 
   async enterEmail(email: string) {
-    await this.emailField.type(email)
+    await this.emailField.fill(email)
     await this.continueButton.click()
   }
 
