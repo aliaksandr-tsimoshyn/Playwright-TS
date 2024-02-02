@@ -14,6 +14,7 @@ export class LoginPage extends BasePage {
 
   async enterEmail(email: string) {
     await this.emailField.fill(email)
+    await this.page.waitForTimeout(1000)
     await this.continueButton.click()
   }
 
